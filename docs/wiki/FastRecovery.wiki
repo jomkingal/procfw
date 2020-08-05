@@ -1,0 +1,11 @@
+Introduction
+
+FastRecovery is a application which is part of the PRO CFW Project.
+
+Its sole purpose lies in performing a QuickStart to boot a OFW into a CFW environment for extended functionality.
+Details
+
+To perform a QuickStart, a existing installation of the Aftermarket Modules on flash0 is required.
+Functionality
+
+FastRecovery overrides the Reboot Sector in memory via a combination of Kernel Exploits. This replaced / patched Reboot Sector in turn circumvents further security levels to allow the Aftermarket Modules to get executed.
