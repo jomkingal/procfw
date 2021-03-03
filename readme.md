@@ -38,8 +38,3 @@ Most frequently mentioned features
     PSX Emulator Unlock - Play your PSX classics, yes - all of them. Not just PSN titles.
     And a lot more...
 
-Support the Project
-
-If you wish to help the project by other means than coding, then please consider donating a small amount of money to boost our working morale and help covering server costs for our online gaming server at www.prometheus.uk.to.
-
-DONATE
