@@ -194,7 +194,7 @@ void init_flash()
 
 void usage(void)
 {
-	printf(VERSION_STR " by Team PRO\n");
+	printf(VERSION_STR " by Team PRO and jomkingal\n");
 }
 
 struct InstallList {
@@ -534,11 +534,11 @@ void start_reboot(int mode)
 		ret = sceKernelStartModule(modid, sizeof(mode), &mode, 0, NULL);
 
 		if (ret < 0) {
-			printf("start module error 0x%08x\n", ret);
+			printf("Start module error 0x%08x\n", ret);
 			delay = 5000000;
 		}
 	} else {
-		printf("load module error 0x%08x\n", modid);
+		printf("Load module error 0x%08x\n", modid);
 		delay = 5000000;
 	}
 
@@ -582,7 +582,7 @@ int main(int argc, char *argv[])
 	}
 #endif
 	
-	printf("Sorry. This program doesn't support your FW(0x%08X).\n", (uint)psp_fw_version);
+	printf("Sorry. This program doesn't support your Firmware version (0x%08X).\n", (uint)psp_fw_version);
 	goto exit;
 	
 version_OK:
@@ -592,9 +592,9 @@ version_OK:
 	usage();
 
 	printf("Press X to launch CFW.\n");
-	printf("Press Triangle to uninstall CFW.\n");
-	printf("Hold L to reinstall CFW.\n");
-	printf("Press R to exit.\n");
+	printf("Press Triangle to Uninstall CFW.\n");
+	printf("Hold L to Reinstall CFW.\n");
+	printf("Press R to Exit.\n");
 
 	sceCtrlReadBufferPositive(&ctl, 1);
 	key = ctl.Buttons;
@@ -614,28 +614,28 @@ version_OK:
 
 	switch(psp_model) {
 		case PSP_GO:
-			printf("PSP GO BRITE Detected ....\n");
+			printf("PSP GO detected....\n");
 			break;
 		case PSP_9000:
-			printf("PSP BRITE 3000(09g) Detected ....\n");
+			printf("PSP BRITE 3000(09g) detected....\n");
 			break;
 		case PSP_7000:
-			printf("PSP BRITE 3000(07g) Detected ....\n");
+			printf("PSP BRITE 3000(07g) detected....\n");
 			break;
 		case PSP_4000:
-			printf("PSP BRITE 3000(04g) Detected ....\n");
+			printf("PSP BRITE 3000(04g) detected....\n");
 			break;
 		case PSP_3000:
-			printf("PSP BRITE 3000 Detected ....\n");
+			printf("PSP BRITE 3000 detected....\n");
 			break;
 		case PSP_2000:
-			printf("PSP SLIM 2000 Detected ....\n");
+			printf("PSP SLIM 2000 detected....\n");
 			break;
 		case PSP_1000:
-			printf("PSP FAT 1000 Detected ....\n");
+			printf("PSP FAT 1000 detected....\n");
 			break;
 		case PSP_11000:
-			printf("PSP STREET E1000 Detected ....\n");
+			printf("PSP STREET E1000 detected....\n");
 			break;
 		default:
 			printf("Unknown PSP model 0%dg\n", psp_model+1);
@@ -652,7 +652,7 @@ version_OK:
 		ret = install_cfw();
 
 		if (ret == 0) {
-			printf(" Completed.\nPress X to start CFW.\n");
+			printf(" Installation Complete!\nPress X to start CFW.\n");
 
 			sceCtrlReadBufferPositive(&ctl, 1);
 			key = ctl.Buttons;

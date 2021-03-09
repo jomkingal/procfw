@@ -318,7 +318,7 @@ static void patch_sysconf_plugin_module(SceModule2 *mod)
 			tmpsize = load_version_txt(tmpbuf, tmpsize);
 
 			if(tmpsize > 0 && check_valid_version_txt(tmpbuf, tmpsize) == 0) {
-				sprintf(str, "[ Model: 0%dg Fake: %.4s ]", (int)psp_model+1, tmpbuf + sizeof("release:") - 1);
+				sprintf(str, "[ Model: 0%dg / Fake: %.4s ]", (int)psp_model+1, tmpbuf + sizeof("release:") - 1);
 			} else {
 out:
 				sprintf(str, "[ Model: 0%dg ]", (int)psp_model+1);
@@ -416,7 +416,8 @@ static void patch_htmlviewer_plugin_module(u32 text_addr)
 	
 	p = (void*)(text_addr + g_offs->htmlviewer_plugin_patch.htmlviewer_manual_location); // "http://manuals.playstation.net/document/pspindex.html"
 	
-	strcpy(p, "http://www.prometheus.uk.to/manual/index.html");
+	//strcpy(p, "http://www.prometheus.uk.to/manual/index.html");
+	strcpy(p, "http://pro.coldbird.net/manual/index.html");
 }
 
 static void patch_htmlviewer_utility_module(u32 text_addr)

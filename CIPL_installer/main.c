@@ -83,12 +83,12 @@ void flash_ipl(int size)
 //		ErrorExit(5000,"Failed to load custom ipl!\n");
 
 	if(pspIplUpdateClearIpl() < 0)
-		ErrorExit(5000,"Failed to clear ipl!\n");
+		ErrorExit(5000,"Failed to clear IPL!\n");
 
 	if (pspIplUpdateSetIpl( ipl_block_large , size + 0x4000 ) < 0)
-		ErrorExit(5000,"Failed to write ipl!\n");
+		ErrorExit(5000,"Failed to write IPL!\n");
 
-	printf("Done.\n");
+	printf("Done Flashing.\n");
 
 }
 
@@ -119,19 +119,19 @@ int main()
 	devkit = sceKernelDevkitVersion();
 
 	if(devkit != DEVKIT_VER ) {
-		ErrorExit(5000,"FW ERROR!\n");
+		ErrorExit(5000, "Firmware Error: Wrong base OFW (0x%08x)!\n", devkit);
 	}
 
 	kpspident = pspSdkLoadStartModule("kpspident.prx", PSP_MEMORY_PARTITION_KERNEL);
 
 	if (kpspident < 0) {
-		ErrorExit(5000, "kpspident.prx loaded failed\n");
+		ErrorExit(5000, "kpspident.prx failed loading.\n");
 	}
 
 	model = kuKernelGetModel();
 
 	if(!(model == 0 || model == 1) || is_ta88v3()) {
-		ErrorExit(5000,"This installer does not support this model.\n");
+		ErrorExit(5000,"This installer does not support this PSP model.\n");
 	}
 
 	if( model == 0 ) {
@@ -154,24 +154,24 @@ int main()
 	size = pspIplUpdateGetIpl(orig_ipl);
 
 	if(size < 0) {
-		ErrorExit(5000,"Failed to get ipl!\n");
+		ErrorExit(5000,"Failed to get IPL!\n");
 	}
 
-	printf("\nCustom ipl Flasher for "VERSION_STR".\n\n\n");
+	printf("\nCustom IPL Flasher for "VERSION_STR" PRO-C\n\n\n");
 
 	int ipl_type = 0;
 
 	if( size == 0x24000 ) {
-		printf("Custom ipl is installed\n");
+		printf("Custom IPL is installed\n");
 		size -= 0x4000;
 		memmove( ipl_block_large + 0x4000 , orig_ipl + 0x4000 , size);
 		ipl_type = 1;
 	} else if( size == 0x20000 ) {
-		printf("Raw ipl \n");
+		printf("Raw IPL \n");
 		memmove( ipl_block_large + 0x4000, orig_ipl, size);
 	} else {
-		printf("ipl size;%08X\n", size);
-		ErrorExit(5000,"Unknown ipl!\n");
+		printf("IPL size;%08X\n", size);
+		ErrorExit(5000,"Unknown IPL!\n");
 	}
 
 	printf(" Press X to ");
@@ -186,7 +186,7 @@ int main()
 		printf(" Press O to Erase CIPL and Restore Raw IPL\n");
 	}
 
-	printf(" Press R to cancel\n\n");
+	printf(" Press R to Cancel\n\n");
     
 	while (1) {
         SceCtrlData pad;
@@ -199,14 +199,14 @@ int main()
 			printf("Flashing IPL...");
 
 			if(pspIplUpdateClearIpl() < 0) {
-				ErrorExit(5000,"Failed to clear ipl!\n");
+				ErrorExit(5000,"Failed to clear IPL!\n");
 			}
 
 			if (pspIplUpdateSetIpl( ipl_block_large + 0x4000 , size ) < 0) {
-				ErrorExit(5000,"Failed to write ipl!\n");
+				ErrorExit(5000,"Failed to write IPL!\n");
 			}
 
-			printf("Done.\n");
+			printf("Done Flashing IPL.\n");
 			break; 
 		} else if (pad.Buttons & PSP_CTRL_RTRIGGER) {
 			ErrorExit(2000,"Cancelled by user.\n");
@@ -215,7 +215,7 @@ int main()
 		sceKernelDelayThread(10000);
 	}
 
-	ErrorExit(5000,"\nInstall complete. Restarting in 5 seconds...\n");
+	ErrorExit(5000,"\nInstallation complete. Restarting in 5 seconds...\n");
 
 	return 0;
 }
