@@ -40,3 +40,19 @@ For 6.20 PRO it would be...
     make deps
     make CONFIG_620=1
 
+Update 05-2021: It took more than 100GB to install Cygwin on Windows 10. 
+Tips on compiling:
+    after installing Full Cygwin execute the follwing commands
+    git clone https://github.com/jomkingal/procfw.git
+    mv /bin/python /bin/python-original
+    mv /bin/python2 /bin/python
+    Do not change the make anymore. make version 4.3 is working just fine.
+    Also, when recompiling you can use the same commands in Ubuntu. In this case, for 6.61 PRO:
+    cd ~/procfw
+    make clean
+    make clean_lib
+    make deps
+    make CONFIG_661=1
+
+Extra tip: Once it says something like  *** Waiting for unfinished jobs.... just run the "make CONFIG_661=1" command again and again until it compiles everything.
+
