@@ -491,7 +491,7 @@ int uninstall_cfw(void)
 		if(ret == 0 || ret == 0x80010002) {
 			printf("OK\n");
 		} else {
-			printf("failed(0x%08X)\n", ret);
+			printf("failed (0x%08X)\n", ret);
 		}
 	}
 
@@ -614,7 +614,7 @@ version_OK:
 
 	switch(psp_model) {
 		case PSP_GO:
-			printf("PSP GO detected....\n");
+			printf("PSP GO N1000 detected....\n");
 			break;
 		case PSP_9000:
 			printf("PSP BRITE 3000(09g) detected....\n");
@@ -663,12 +663,12 @@ version_OK:
 				key = ctl.Buttons;
 			}
 
-			printf("Now reboot to " VERSION_STR " :)\n");
+			printf("Now rebooting to 0x%08X " VERSION_STR " :)\n", (uint)psp_fw_version);
 			start_reboot(1);
 		}
 	} else if (key & PSP_CTRL_TRIANGLE) {
 		ret = uninstall_cfw();
-		printf("Now reboot to OFW :)\n");
+		printf("Now rebooting to 0x%08X OFW :)\n", (uint)psp_fw_version);
 		sceKernelDelayThread(1000000);
 		start_reboot(0);
 	}

@@ -405,7 +405,7 @@ void write_files(const char *base)
 	newsize = gzip_decompress(file_buffer, installer, size_installer);
 
 	if(newsize < 0) {
-		pspDebugScreenPrintf("cannot decompress installer %d\n", newsize);
+		pspDebugScreenPrintf("Cannot decompress installer %d\n", newsize);
 
 		return;
 	}
@@ -417,7 +417,7 @@ void write_files(const char *base)
 	newsize = gzip_decompress(file_buffer, Rebootex_prx, size_Rebootex_prx);
 	
 	if(newsize < 0) {
-		pspDebugScreenPrintf("cannot decompress rebootex %d\n", newsize);
+		pspDebugScreenPrintf("Cannot decompress rebootex %d\n", newsize);
 		
 		return;
 	}
@@ -617,7 +617,7 @@ int main(int argc, char * argv[])
 	}
 #endif
 
-	pspDebugScreenPrintf("Sorry. This program doesn't support your FW(0x%08X).\n", (uint)psp_fw_version);
+	pspDebugScreenPrintf("Sorry. This program doesn't support your firmware version (0x%08X).\n", (uint)psp_fw_version);
 	sceKernelDelayThread(5*1000000);
 	goto exit;
 

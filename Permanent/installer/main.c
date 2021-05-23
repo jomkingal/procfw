@@ -431,7 +431,7 @@ int gzip_compress(u8 *dst, const u8 *src, int size)
 	ret = deflateInit2(&strm, 9, Z_DEFLATED, 15+16, 8, Z_DEFAULT_STRATEGY);
 
 	if(ret != Z_OK) {
-		printf("%s: compress error\n", __func__);
+		printf("%s: Compress error\n", __func__);
 		free(elf_compress);
 		
 		return -2;
@@ -446,7 +446,7 @@ int gzip_compress(u8 *dst, const u8 *src, int size)
 
 	if(ret == Z_STREAM_ERROR) {
 		deflateEnd(&strm);
-		printf("%s: compress error\n", __func__);
+		printf("%s: Compress error\n", __func__);
 		free(elf_compress);
 
 		return -3;
@@ -495,7 +495,7 @@ int forge_vshmain(u8 *psp_header, u8 *kirk_header)
 	int elfSize = load_elf(PRXPATH);
 
 	if(elfSize < 0) {
-		printf("cannot load %s\n", PRXPATH);
+		printf("Cannot load %s\n", PRXPATH);
 		
 		return elfSize;
 	}
@@ -785,7 +785,7 @@ int main()
 	int fw_version, ret;
 
 	pspDebugScreenInit();
-	printf("6.20 PRO Permanent Patch By Team PRO\n");
+	printf("6.20 PRO Permanent Patch By Team PRO and jomkingal\n");
 	fw_version = sceKernelDevkitVersion();
 
 	if(fw_version != 0x06020010 || sctrlHENGetMinorVersion() == 0x8002013A) {
@@ -841,7 +841,7 @@ int main()
 	ret = get_vshmain_prx_header();
 
 	if(ret < 0) {
-		printf("Get psp header from original vshmain failed %08X\n", ret);
+		printf("Get PSP header from original vshmain failed %08X\n", ret);
 		sceKernelDelayThread(2 * 1000000L);
 		goto exit;
 	}
@@ -858,7 +858,7 @@ int main()
 	ret = forge_vshmain(vshmain_pspheader, vshmain_kirkheader);
 
 	if(ret < 0) {
-		printf("forge fake vshmain failed %08X\n", ret);
+		printf("Forge fake vshmain failed %08X\n", ret);
 		sceKernelDelayThread(2 * 1000000L);
 		goto exit;
 	}
@@ -874,13 +874,13 @@ int main()
 	ret = final_check();
 
 	if(ret < 0) {
-		printf("final check failed %08X\n", ret);
+		printf("Final check failed %08X\n", ret);
 		sceKernelDelayThread(2 * 1000000L);
 		goto exit;
 	}
 
 	install();
-	printf("Installed completed\n");
+	printf("Installation complete!\n");
 
 exit:
 	printf("Exiting...\n");

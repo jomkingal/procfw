@@ -88,7 +88,7 @@ void flash_ipl(int size)
 	if (pspIplUpdateSetIpl( ipl_block_large , size + 0x4000 ) < 0)
 		ErrorExit(5000,"Failed to write IPL!\n");
 
-	printf("Done Flashing.\n");
+	printf("Done Flashing IPL.\n");
 
 }
 

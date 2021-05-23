@@ -426,7 +426,8 @@ static void patch_htmlviewer_utility_module(u32 text_addr)
 
 	p = (void*)(text_addr + g_offs->htmlviewer_utility_patch.htmlviewer_manual_location); // "http://manuals.playstation.net/document/pspindex.html"
 	
-	strcpy(p, "http://www.prometheus.uk.to/manual/index.html");
+	//strcpy(p, "http://www.prometheus.uk.to/manual/index.html");
+	strcpy(p, "http://pro.coldbird.net/manual/index.html");
 }
 
 int umdLoadExec(char * file, struct SceKernelLoadExecVSHParam * param)
