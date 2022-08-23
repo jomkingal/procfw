@@ -14,7 +14,7 @@ Fake Region
 Recovery Font
 ISO Mode
 Normal
-M33 driver
+M33 Driver
 Sony NP9660
 Inferno
 XMB USB Device
@@ -38,7 +38,7 @@ Prevent Hibernation Deletion (PSP-Go only)
 Advanced
 XMB Plugin
 Game Plugin
-Pops Plugin
+POPS Plugin
 NoDRM Engine
 Hide CFW Files from game
 Block Analog Input in Game
@@ -50,21 +50,21 @@ Inferno & NP9660 Cache Policy
 Allow Non-latin1 ISO Filename
 Memory Stick Speedup
 None
-Pop
+POPS
 Game
-Vsh
-Pop & Game
-Game & Vsh
-Vsh & Pop
+VSH
+POPS & Game
+Game & VSH
+VSH & POPS
 Always
 CPU Speed
 XMB CPU/BUS
 Game CPU/BUS
 Plugins
-System storage
-Memory stick
-Plugins on system storage
-Plugins on memory stick
+System Storage
+Memory Stick
+Plugins on System Storage
+Plugins on Memory Stick
 Registry hacks
 WMA activated
 Flash activated
@@ -90,7 +90,7 @@ Korea
 United Kingdom
 Mexico
 Australia
-Hongkong
+Hong Kong
 Taiwan
 Russia
 China
