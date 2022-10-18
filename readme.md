@@ -5,8 +5,10 @@ PRO Firmware is a Aftermarket Firmware for Playstation Portable™.
 It's licensed under the GPLv3, and thus is under full control of the community, made by users for the users.
 
 It will continue to provide you with new features, even after Sony drops the plattform and allows you to develope your own applications for PSP.
+
 News Bulletin
 
+    10.18.22: Updated PRO-C version to C3 because it's been a while.
     08.05.12: Updated Binary Downloads with Linkbucks to help Prometheus Server Upgrade Funding.
     06.10.12: Nightly Building Bot updated. Now produces properly working CIPL.
 
@@ -16,17 +18,8 @@ Supported Kernel and Hardware Revisions
     6.35 [1g, 2g, 3g, 4g, 5g, 7g, 9g]
     6.39 [1g, 2g, 3g, 4g, 5g, 7g, 9g]
     6.60 [1g, 2g, 3g, 4g, 5g, 7g, 9g, 11g]
+    6.61 [1g, 2g, 3g, 4g, 5g, 7g, 9g, 11g]
 
-Downloads
-
-    6.20 PRO-C2
-    6.35 PRO-C2
-    6.39 PRO-C2
-    6.60 PRO-C2
-    OpenCMA for PS Vita (1.69 and below)
-    OpenCMA for PS Vita (1.80 including error fix)
-    ciso.py Cross Plattform ISO Compressor
-    ▾ OUTDATED FILES ▾
 
 Most frequently mentioned features
 
