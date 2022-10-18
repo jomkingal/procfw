@@ -108,7 +108,7 @@ int sctrlHENGetVersion()
 
 int sctrlHENGetMinorVersion()
 {
-	return 0;
+	return 3; // Returns the minor version value for System Software. Return 3 for PRO-C3. Default 0.
 }
 
 PspIoDrv *sctrlHENFindDriver(char *drvname)

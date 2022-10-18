@@ -157,7 +157,7 @@ int main()
 		ErrorExit(5000,"Failed to get IPL!\n");
 	}
 
-	printf("\nCustom IPL Flasher for "VERSION_STR" PRO-C3\n\n\n");
+	printf("\nCustom IPL Flasher for "VERSION_STR" PRO-C\n\n\n");
 
 	int ipl_type = 0;
 
