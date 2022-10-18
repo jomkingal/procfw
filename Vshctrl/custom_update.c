@@ -75,7 +75,7 @@ void patch_SceUpdateDL_Library(u32 text_addr)
 	
 	p = (char*)(text_addr + g_offs->SceUpdateDL_library_patch. SceUpdateDL_UpdateListStr);
 	//sprintf(p, "http://pro.coldbird.uk.to/psp-updatelist.txt?fw=0x%08X&model=0%dg", (uint)psp_fw_version, (int)psp_model + 1);
-	// change this to my own server
+	// change this to my own server whenever that happens...
 	sprintf(p, "http://pro.coldbird.net/psp-updatelist.txt?fw=0x%08X&model=0%dg", (uint)psp_fw_version, (int)psp_model + 1);
 
 	_sw(NOP, text_addr + g_offs->SceUpdateDL_library_patch.SceUpdateDL_UpdateListCall1);
