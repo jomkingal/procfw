@@ -300,7 +300,7 @@ int main(int argc, char** argv)
 		ErrorExit(5000, "This update or a higher one was already applied.\n");
 	*/
 
-	printf("\nCFW 6.39PRO installer for Hackable PSP .\n\n");
+	printf("\nCFW 6.39PRO Installer for Hackable PSP .\n\n");
 /*
 	printf("\nCFW 6.39 installer for Hackable PSP by neur0n.\n\n");
 	printf("Changes:\n\n");

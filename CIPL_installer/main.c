@@ -30,8 +30,9 @@ PSP_MAIN_THREAD_ATTR(PSP_THREAD_ATTR_VSH);
 #endif
 
 #define printf pspDebugScreenPrintf
-#define WHITE 0xFFFFF1
-#define GREEN 0x0000FF00
+#define WHITE 0x00E0E0E0
+#define GREEN 0x00006400
+#define BLACK 0x00000000
 
 u32 sceSysregGetTachyonVersion(void);		// 0xE2A5D1EE
 
@@ -115,7 +116,9 @@ int main()
 	(void)size_ipl_block_large;
 
 	pspDebugScreenInit();
-	pspDebugScreenSetTextColor(WHITE);
+	pspDebugScreenSetBackColor(WHITE);
+	pspDebugScreenClear();
+	pspDebugScreenSetTextColor(GREEN);
 	devkit = sceKernelDevkitVersion();
 
 	if(devkit != DEVKIT_VER ) {
@@ -157,7 +160,7 @@ int main()
 		ErrorExit(5000,"Failed to get IPL!\n");
 	}
 
-	printf("\nCustom IPL Flasher for "VERSION_STR" PRO-C\n\n\n");
+	printf("\nConstruct\n\nCustom IPL(Initial Program Loader) Flasher for "VERSION_STR" PRO-C\n\n\n");
 
 	int ipl_type = 0;
 

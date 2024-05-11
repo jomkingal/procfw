@@ -64,6 +64,10 @@ PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER | THREAD_ATTR_VFPU);
 #define VERSION_STR "PRO-C"
 #define printf pspDebugScreenPrintf
 
+#define WHITE 0x00E0E0E0
+#define GREEN 0x00006400
+#define BLACK 0x00000000
+
 int psp_model = 0;
 u32 psp_fw_version;
 int disable_smart = 0;
@@ -194,7 +198,7 @@ void init_flash()
 
 void usage(void)
 {
-	printf(VERSION_STR " by Team PRO and jomkingal\n");
+	printf("\nConstruct\n\n" VERSION_STR " by Team PRO and jomkingal\n\n\n");
 }
 
 struct InstallList {
@@ -556,6 +560,9 @@ int main(int argc, char *argv[])
 
 	memset(&stat, 0, sizeof(stat));
 	pspDebugScreenInit();
+	pspDebugScreenSetBackColor(WHITE);
+	pspDebugScreenClear();
+	pspDebugScreenSetTextColor(GREEN);
 	psp_fw_version = sceKernelDevkitVersion();
 
 #ifdef CONFIG_620
@@ -591,10 +598,10 @@ version_OK:
 	init_flash();
 	usage();
 
-	printf("Press X to launch CFW.\n");
-	printf("Press Triangle to Uninstall CFW.\n");
-	printf("Hold L to Reinstall CFW.\n");
-	printf("Press R to Exit.\n");
+	printf(" Press X to launch CFW.\n");
+	printf(" Press Triangle to Uninstall CFW.\n");
+	printf(" Hold L to Reinstall CFW.\n");
+	printf(" Press R to Exit.\n\n");
 
 	sceCtrlReadBufferPositive(&ctl, 1);
 	key = ctl.Buttons;

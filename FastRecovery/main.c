@@ -18,6 +18,7 @@
 #include <pspdebug.h>
 #include <pspctrl.h>
 #include <pspsdk.h>
+#include <pspkernel.h>
 #include <pspiofilemgr.h>
 #include <psputility.h>
 #include <psputility_htmlviewer.h>
@@ -26,10 +27,13 @@
 #include <psputilsforkernel.h>
 #include <pspsysmem.h>
 #include <psppower.h>
+#include <stdio.h>
 #include <string.h>
 #include "utils.h"
 #include "printk.h"
 #include "rebootex_conf.h"
+#include "main.h"
+#include "rain.h"
 #include "../Rebootex_bin/rebootex.h"
 #include "../PXE/Launcher/launcher_patch_offset.h"
 
@@ -530,6 +534,10 @@ int main(int argc, char * argv[])
 	printk_init("ms0:/fastrecovery.txt");
 	printk("Hello exploit\r\n");
 	pspDebugScreenInit();
+
+	//add matrix rain
+	int res = rain_animation();
+	sceKernelDelayThread(10 * 1000 * 1000);
 
 	input_dump_kmem();
 

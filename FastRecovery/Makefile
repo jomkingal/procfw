@@ -1,5 +1,5 @@
 TARGET = fast_recovery
-OBJS = main.o imports.o syscall.o ../PXE/Launcher/launcher_patch_offset.o ../Common/utils.o
+OBJS = main.o rain.o imports.o syscall.o ../PXE/Launcher/launcher_patch_offset.o ../Common/utils.o
 LIBS =
 CFLAGS = -Os -G0 -Wall -I ../Common -I ../include
 CXXFLAGS = $(CFLAGS)
