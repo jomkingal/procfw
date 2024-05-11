@@ -8,6 +8,7 @@ It will continue to provide you with new features, even after Sony drops the pla
 
 News Bulletin
 
+    05.11.24: Updated 6.61 Build Interface to Matrix theme based on TheFl0w's Trinity PS Vita Exploit.
     10.18.22: Updated PRO-C version to C3 because it's been a while.
     08.05.12: Updated Binary Downloads with Linkbucks to help Prometheus Server Upgrade Funding.
     06.10.12: Nightly Building Bot updated. Now produces properly working CIPL.
