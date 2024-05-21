@@ -91,7 +91,10 @@ static void system_booted_action(void)
 		msstor_init();
 		printk("%s: msstor cache enabled\n", __func__);
 	}
-
+	
+	//Enable QA Flags to show Debug Settings
+	patch_qaflags();
+	
 	booted = 1;
 	sync_cache();
 }
@@ -263,6 +266,27 @@ static void patch_sceUmdMan_driver(SceModule* mod)
 {
 	if(is_homebrews_runlevel()) {
 		hook_import_bynid(mod, "InitForKernel", 0x27932388, _sceKernelBootFromForUmdMan, 0);
+	}
+}
+
+// Add QA Flags from ARK-4
+int _sceChkreg_6894A027(u8* a0, u32 a1){
+	if (a0 && a1 == 0){
+		*a0 = 1;
+		return 0;
+	}
+	return -1;
+}
+
+void patch_qaflags(){
+	u32 fp;
+   
+	// sceChkregGetPsCode
+	fp = sctrlHENFindFunction("sceChkreg", "sceChkreg_driver", 0x6894A027); 
+
+	if (fp) {
+		_sw(MAKE_JUMP(_sceChkreg_6894A027), fp);
+        _sw(NOP, fp+4);
 	}
 }
 
