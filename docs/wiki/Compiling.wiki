@@ -1,6 +1,6 @@
 Introduction
 
-This tutorial will guide you on how to setup a working development environment for compiling the PRO CFW sourcecode on Ubuntu Linux.
+This tutorial will guide you on how to setup a working development environment for compiling the PRO CFW sourcecode on Ubuntu Linux. (Ubuntu 24.04 LTS still works as of 2025-07)
 
 It requires you to have basic knowledge on how to handle a bash terminal.
 Setting up the PSPSDK
