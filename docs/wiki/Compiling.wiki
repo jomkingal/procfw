@@ -7,43 +7,43 @@ Setting up the PSPSDK
 
 Due to problems with the PSPSDK subversion repository, this tutorial will explain an alternative and easier route on how to setup a minimalistic PSPSDK for compiling the PRO CFW.
 
-    Grab the Ubuntu .deb Package for your CPU-architecture from the MinPSPW Sourceforge Page. 
-        - https://sourceforge.net/projects/minpspw/
-    I used the minpspw_0.11.1-1ubuntu0_amd64.deb version.
-    Open a bash terminal and issue the following commands to install some dependencies.
-        sudo apt install make git-core cmake zlib1g-dev gcc libmpfr-dev libgmp-dev
-        cd Downloads
-        sudo dpkg -i minpspw.deb
-        cd
-        vi .profile
-            Add the following lines to the bottom of the file, then save and close it.
-            export PATH=$PATH:/opt/pspsdk/bin
-            export PSPSDK=/opt/pspsdk
-        sudo apt-get install zlib1g-dev
-        sudo reboot
-            This will reboot your system, just log back into your user after it's done.
-    
-    Issues with Python2:
-    At the time of writing, I had some issues installing Python2 since it looks like it was dropped from apt's list. I had to do the following commands to install Python2 on Ubuntu 24.04:
-        wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz
-        tar xzf Python-2.7.18.tgz Python-2.7.18/
-        cd Python-2.7.18/
-        ./configure --prefix=/usr --enable-optimizations
-        sudo make install
-    
-    Grab the latest PRO CFW sourcecode from the Mercurial Repository.
-    Open a bash terminal and cd into the PRO CFW sourcecode folder, then issue the following commands.
-        cd contrib/PrxEncrypter/
-        make
-        chmod +x PrxEncrypter
-        sudo mv PrxEncrypter /opt/pspsdk/bin/
-        vi build.mak
-            Search for...
-            /usr/local/pspdev/bin/PrxEncrypter
-            ... and replace it with...
-            PrxEncrypter
-            ... then save the file and close it.
-        sudo cp build.mak /opt/pspsdk/psp/sdk/lib/
+Grab the Ubuntu .deb Package for your CPU-architecture from the MinPSPW Sourceforge Page. 
+    - https://sourceforge.net/projects/minpspw/
+I used the minpspw_0.11.1-1ubuntu0_amd64.deb version.
+Open a bash terminal and issue the following commands to install some dependencies.
+    sudo apt install make git-core cmake zlib1g-dev gcc libmpfr-dev libgmp-dev
+    cd Downloads
+    sudo dpkg -i minpspw.deb
+    cd
+    vi .profile
+        Add the following lines to the bottom of the file, then save and close it.
+        export PATH=$PATH:/opt/pspsdk/bin
+        export PSPSDK=/opt/pspsdk
+    sudo apt-get install zlib1g-dev
+    sudo reboot
+        This will reboot your system, just log back into your user after it's done.
+
+Issues with Python2:
+At the time of writing, I had some issues installing Python2 since it looks like it was dropped from apt's list. I had to do the following commands to install Python2 on Ubuntu 24.04:
+    wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz
+    tar xzf Python-2.7.18.tgz Python-2.7.18/
+    cd Python-2.7.18/
+    ./configure --prefix=/usr --enable-optimizations
+    sudo make install
+
+Grab the latest PRO CFW sourcecode from the Mercurial Repository.
+Open a bash terminal and cd into the PRO CFW sourcecode folder, then issue the following commands.
+    cd contrib/PrxEncrypter/
+    make
+    chmod +x PrxEncrypter
+    sudo mv PrxEncrypter /opt/pspsdk/bin/
+    vi build.mak
+        Search for...
+        /usr/local/pspdev/bin/PrxEncrypter
+        ... and replace it with...
+        PrxEncrypter
+        ... then save the file and close it.
+    sudo cp build.mak /opt/pspsdk/psp/sdk/lib/
 
 Congratulations. You now have a KIRK signature compatible PSPSDK set up and are ready to compile PRO CFW.
 
